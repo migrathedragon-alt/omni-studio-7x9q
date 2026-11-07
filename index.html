@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OmniStudio AI v3.0</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>.canvas-grid { background-image: radial-gradient(#27272a 1px, transparent 1px); background-size: 20px 20px; }</style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 h-screen w-screen flex flex-col overflow-hidden font-sans select-none">
+  <header class="h-14 bg-zinc-900 border-b border-zinc-800 flex items-center justify-between px-4 z-20 shrink-0">
+    <div class="flex items-center gap-3 text-indigo-500 font-bold text-lg"><i class="fa-solid fa-clapperboard"></i> OMNISTUDIO v3.0</div>
+    <div class="flex items-center gap-3">
+      <select id="lang-select" onchange="changeLang(this.value)" class="bg-zinc-800 text-xs text-zinc-200 px-2 py-1 rounded cursor-pointer">
+        <option value="en" selected>English</option>
+        <option value="te">తెలుగు</option>
+      </select>
+      <button onclick="alert('Render 4K started!')" class="bg-indigo-600 text-white px-3 py-1 rounded text-xs font-semibold">Render 4K</button>
+    </div>
+  </header>
+  <div class="flex-1 flex overflow-hidden">
+    <div class="flex-1 bg-zinc-950 flex flex-col items-center justify-center p-6 canvas-grid relative">
+      <div class="bg-black border border-zinc-800 w-full max-w-2xl h-96 rounded-lg flex items-center justify-center text-zinc-400 text-sm shadow-2xl">
+        <span id="preview-text">Interactive Video Editor Canvas Ready</span>
+      </div>
+    </div>
+  </div>
+  <script>
+    const t = {
+      en: { preview: "Interactive Video Editor Canvas Ready" },
+      te: { preview: "ఇంటరాక్టివ్ వీడియో ఎడిటర్ కాన్వాస్ సిద్ధంగా ఉంది" }
+    };
+    function changeLang(lang) {
+      document.getElementById('preview-text').innerText = t[lang].preview;
+    }
+  </script>
+</body>
+</html>
